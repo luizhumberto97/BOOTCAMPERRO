@@ -40,7 +40,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
           (
             dateFieldName, // converter a informação que não é do tipo string para string
           ) =>
-            `to_char(${dateFieldName}, 'MM-YYYY') = '${parsedMonth}- ${year}'`,
+            `to_char(${dateFieldName}, 'MM-YYYY') = '${parsedMonth}-${year}'`,
         ),
       },
     });
@@ -66,7 +66,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
           (
             dateFieldName, // converter a informação que não é do tipo string para string
           ) =>
-            `to_char(${dateFieldName}, 'DD-MM-YYYY') = '${parsedDay}-${parsedMonth}- ${year}'`,
+            `to_char(${dateFieldName}, 'DD-MM-YYYY') = '${parsedDay}-${parsedMonth}-${year}'`,
         ),
       },
     });

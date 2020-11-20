@@ -40,7 +40,6 @@ class SendForgotPasswordEmailService {
       '..',
       'views',
       'forgot_password.hbs',
-
     );
 
     // primeiro parametro (para quem quer enviar) e depois a mensagem ( corpo)
@@ -56,7 +55,7 @@ class SendForgotPasswordEmailService {
         file: forgotPasswordTemplate,
         variables: {
           name: user.name,
-          link: `http://localhost:3000/reset_password?token=${token}`,
+          link: `${process.env.APP_WEB_URL}/reset_password?token=${token}`,
         },
       },
     });

@@ -1,16 +1,23 @@
+import 'reflect-metadata';
+
 import AppError from '@shared/errors/AppError';
+
+import FakeNotificationsRepository from '@modules/notifications/repositories/fakes/FakeNotificationsRepository';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 import CreateAppointmentService from './CreateAppointmentService';
 
 let fakeAppointmentsRepository: FakeAppointmentsRepository;
 let createAppointment: CreateAppointmentService;
+let fakeNotificationsRepository: FakeNotificationsRepository;
 
 describe('CreateAppointment', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository(); // Declaramos primeiro porque o CreateAppointmentService recebe um constructor como parametro que é a interface
+    fakeNotificationsRepository = new FakeNotificationsRepository();
 
     createAppointment = new CreateAppointmentService( // Já colocamos o repositorio de appointment no caso eles recebem a IAppointments
       fakeAppointmentsRepository,
+      fakeNotificationsRepository,
     );
   });
 
